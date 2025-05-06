@@ -270,6 +270,10 @@ def generate_board():
 show_time = True  # Gösterim durumu
 start_time = pygame.time.get_ticks()
 
+def reset_show_timer():
+    global show_time, start_time
+    show_time = True
+    start_time = pygame.time.get_ticks()
 
 while running:
 
@@ -279,6 +283,7 @@ while running:
     if new_board:
         generate_board()
         new_board = False
+        reset_show_timer()
 
     restart = draw_backgrounds()
     menu = menu_button_calling()
